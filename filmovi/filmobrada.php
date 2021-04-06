@@ -25,11 +25,9 @@
 			$query = "INSERT INTO $table (naziv,zanr,godina,uloga,idglumac) VALUES ('$data[naziv]','$data[zanr]','$data[godina]','$data[uloga]','$data[idglumac]')";
 			
 			if ($sql = $this->conn->query($query)) {
-				echo "<script>alert('Film je uspesno dodat!');</script>";
-				echo "<script>window.location.href = 'film.php';</script>";
+				return true;
 			}else{
-				echo "<script>alert('failed');</script>";
-				echo "<script>window.location.href = 'film.php';</script>";
+				return false;
 			}
 
 		}           

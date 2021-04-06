@@ -77,14 +77,29 @@
     
     if (isset($_POST['insertdata'])) {
 
+        if (isset($_POST['ime_prezime']) && isset($_POST['godine']) && isset($_POST['mesto_rodjenja'])) {
+            if (!empty($_POST['ime_prezime']) && !empty($_POST['godine']) && !empty($_POST['mesto_rodjenja'])) {
                     
                 $data['ime_prezime'] = $_POST['ime_prezime'];
                 $data['godine'] = $_POST['godine'];
                 $data['mesto_rodjenja'] = $_POST['mesto_rodjenja'];
-                
+                        
 
                 $insert = $model->insert('glumac',$data);
-         
+
+                if($insert){
+                    echo "<script>alert('Glumac je uspesno dodat!');</script>";
+				    echo "<script>window.location.href = 'glumac.php';</script>";
+                }else{
+                    echo "<script>alert('Greska prilikom dodavanja novog glumca!');</script>";
+				    echo "<script>window.location.href = 'glumac.php';</script>";
+                }
+
+            }else{
+                echo "<script>alert('Sva polja su obavezna. Pokusajte ponovo!');</script>";
+                echo "<script>window.location.href = 'glumac.php';</script>";
+            }
+        } 
     }
 	
 	if(isset($_POST['deletedata'])){
@@ -100,22 +115,28 @@
   
     
     if (isset($_POST['updatedata'])) {
-        
-        $id = $_POST['gupdate_id'];
-        $ime_prezime = $_POST['ime_prezime'];
-        $godine = $_POST['godine'];
-        $mesto_rodjenja = $_POST['mesto_rodjenja'];
+        if (isset($_POST['ime_prezime']) && isset($_POST['godine']) && isset($_POST['mesto_rodjenja'])) {
+            if (!empty($_POST['ime_prezime']) && !empty($_POST['godine']) && !empty($_POST['mesto_rodjenja'])) {
+                $id = $_POST['gupdate_id'];
+                $ime_prezime = $_POST['ime_prezime'];
+                $godine = $_POST['godine'];
+                $mesto_rodjenja = $_POST['mesto_rodjenja'];
         
     
-            $update = $model->update('glumac', $id, $ime_prezime, $godine, $mesto_rodjenja);
+                $update = $model->update('glumac', $id, $ime_prezime, $godine, $mesto_rodjenja);
     
-            if($update){
-                echo "<script>alert('Glumac je uspesno izmenjen!');</script>";
-                echo "<script>window.location.href = 'glumac.php';</script>";
+                if($update){
+                    echo "<script>alert('Glumac je uspesno izmenjen!');</script>";
+                    echo "<script>window.location.href = 'glumac.php';</script>";
+                }else{
+                    echo "<script>alert('Greska prilikom izmene glumca!');</script>";
+                    echo "<script>window.location.href = 'glumacobrada.php';</script>";
+                }
             }else{
-                echo "<script>alert('Greska prilikom izmene glumca!');</script>";
-                echo "<script>window.location.href = 'glumacobrada.php';</script>";
+                echo "<script>alert('Sva polja su obavezna. Pokusajte ponovo!');</script>";
+                echo "<script>window.location.href = 'glumac.php';</script>";
             }
+        } 
     }     
 
 ?>

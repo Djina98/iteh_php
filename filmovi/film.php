@@ -71,7 +71,8 @@
     
     
     if (isset($_POST['insertdata'])) {
-
+        if (isset($_POST['naziv']) && isset($_POST['zanr']) && isset($_POST['godina']) && isset($_POST['uloga'])) {
+            if (!empty($_POST['naziv']) && !empty($_POST['zanr']) && !empty($_POST['godina']) && !empty($_POST['uloga'])) {
                     
                 $data['naziv'] = $_POST['naziv'];
                 $data['zanr'] = $_POST['zanr'];
@@ -80,7 +81,19 @@
                 $data['idglumac'] = $_POST['insertidglumac'];
 
                 $insert = $model->insert('film',$data);
-         
+
+                if($insert){
+                    echo "<script>alert('Film je uspesno dodat!');</script>";
+                    echo "<script>window.location.href = 'film.php';</script>";
+                }else{
+                    echo "<script>alert('Greska prilikom dodavanja filma!');</script>";
+				    echo "<script>window.location.href = 'film.php';</script>";
+                }
+            }else{
+                echo "<script>alert('Sva polja su obavezna. Pokusajte ponovo!');</script>";
+                echo "<script>window.location.href = 'film.php';</script>";
+            }
+        }
     }
 	
 	if(isset($_POST['deletedata'])){
@@ -96,23 +109,31 @@
   
     
     if (isset($_POST['updatedata'])) {
-        
-        $id = $_POST['fupdate_id'];
-        $naziv = $_POST['naziv'];
-        $zanr = $_POST['zanr'];
-        $godina = $_POST['godina'];
-        $uloga = $_POST['uloga'];
-        $idglumac = $_POST['editidglumac'];
-    
-            $update = $model->update('film', $id, $naziv, $zanr, $godina, $uloga, $idglumac);
-    
-            if($update){
-                echo "<script>alert('Film je uspesno izmenjen!');</script>";
-                echo "<script>window.location.href = 'film.php';</script>";
+        if (isset($_POST['naziv']) && isset($_POST['zanr']) && isset($_POST['godina']) && isset($_POST['uloga'])) {
+            if (!empty($_POST['naziv']) && !empty($_POST['zanr']) && !empty($_POST['godina']) && !empty($_POST['uloga'])) {
+                $id = $_POST['fupdate_id'];
+                $naziv = $_POST['naziv'];
+                $zanr = $_POST['zanr'];
+                $godina = $_POST['godina'];
+                $uloga = $_POST['uloga'];
+                $idglumac = $_POST['editidglumac'];
+            
+                    $update = $model->update('film', $id, $naziv, $zanr, $godina, $uloga, $idglumac);
+            
+                    if($update){
+                        echo "<script>alert('Film je uspesno izmenjen!');</script>";
+                        echo "<script>window.location.href = 'film.php';</script>";
+                    }else{
+                        echo "<script>alert('Greska prilikom izmene filma!');</script>";
+                        echo "<script>window.location.href = 'filmobrada.php';</script>";
+                    }
+            
             }else{
-                echo "<script>alert('Greska prilikom izmene filma!');</script>";
-                echo "<script>window.location.href = 'filmobrada.php';</script>";
+                echo "<script>alert('Sva polja su obavezna. Pokusajte ponovo!');</script>";
+                echo "<script>window.location.href = 'film.php';</script>";
             }
+        }
+            
     }     
 
 ?>

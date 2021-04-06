@@ -25,11 +25,9 @@
 			$query = "INSERT INTO $table (ime_prezime,godine,mesto_rodjenja) VALUES ('$data[ime_prezime]','$data[godine]','$data[mesto_rodjenja]')";
 			
 			if ($sql = $this->conn->query($query)) {
-				echo "<script>alert('Glumac je uspesno dodat!');</script>";
-				echo "<script>window.location.href = 'glumac.php';</script>";
+				return true;
 			}else{
-				echo "<script>alert('failed');</script>";
-				echo "<script>window.location.href = 'glumac.php';</script>";
+				return false;
 			}
 
 		}           
