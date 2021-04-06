@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FILMOVI</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="/iteh/img/favicon.ico"/>
+    <link rel="icon" type="image/png" href="/iteh_php/img/favicon.ico"/>
     
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -47,9 +47,9 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li><a href="/iteh/index.html">Pocetna</a></li>
-                                <li class="active"><a href="/iteh/filmovi/film.php">Filmovi</a></li>
-                                <li><a href="/iteh/glumci/glumac.php">Glumci</a></li>
+                                <li><a href="/iteh_php/index.html">Pocetna</a></li>
+                                <li class="active"><a href="/iteh_php/filmovi/film.php">Filmovi</a></li>
+                                <li><a href="/iteh_php/glumci/glumac.php">Glumci</a></li>
          
                     </div>
                 </div>
