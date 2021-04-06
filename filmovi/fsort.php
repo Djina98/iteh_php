@@ -38,7 +38,7 @@
                <td>' . $row['id'] . '</td>
                <td>' . $row['naziv'] . '</td>
                <td>' . $row['zanr'] . '</td>
-               <td>' . $row['trajanje'] . '</td>
+               <td>' . $row['godina'] . '</td>
                <td>' . $row['uloga'] . '</td>
                <td>' . $row['ime_prezime'] . '</td>
                <td> 
